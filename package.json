@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
+    "migrate": "node ace cmma:migrate-run",
+    "production": "npm run build && npm run migrate",
     "start": "node server.js",
     "test": "node ace test",
     "lint": "eslint . --ext=.ts",
