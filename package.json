@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
+    "migrate-env": "cp .env build/.env",
     "migrate": "node ace cmma:migration-run",
-    "production": "npm run build && npm run migrate",
-    "start": "node server.js",
+    "production": "npm run build && npm run migrate && npm run migrate-env",
+    "start": "node build/server.js",
     "test": "node ace test",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
