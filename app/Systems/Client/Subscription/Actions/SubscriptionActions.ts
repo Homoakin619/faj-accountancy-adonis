@@ -1,7 +1,7 @@
 import CreateSubscriptionRecordOptions from 'App/Systems/Client/Subscription/TypeChecking/Subscription/CreateSubscriptionRecordOptions'
 import Subscription from 'App/Systems/Client/Subscription/Models/Subscription'
 import SubscriptionIdentifierOptions from 'App/Systems/Client/Subscription/TypeChecking/Subscription/SubscriptionIdentifierOptions'
-import UpdateSubscriptionRecordOptions from 'App/Systems/Client/Subscription/TypeChecking/Subscription/UpdateSubscriptionRecordOptions'
+
 import User from '../../UserManagement/Models/User'
 
 export default class SubscriptionActions {
@@ -124,19 +124,19 @@ export default class SubscriptionActions {
    * @returns {*}  {(Promise<Subscription | null>)}
    * @memberof SubscriptionActions
    */
-  public static async updateSubscriptionRecord(updateSubscriptionRecordOptions: UpdateSubscriptionRecordOptions) {
-    const { identifierOptions, updatePayload, dbTransactionOptions } = updateSubscriptionRecordOptions
+  // public static async updateSubscriptionRecord(updateSubscriptionRecordOptions: UpdateSubscriptionRecordOptions) {
+  //   const { identifierOptions, updatePayload, dbTransactionOptions } = updateSubscriptionRecordOptions
 
-    const subscription = await this.getSubscriptionRecord(identifierOptions)
+  //   const subscription = await this.getSubscriptionRecord(identifierOptions)
 
-    if (!subscription) return null
+  //   if (!subscription) return null
 
-    await subscription.merge(updatePayload)
+  //   await subscription.merge(updatePayload)
 
-    if (dbTransactionOptions.useTransaction) {
-      subscription.useTransaction(dbTransactionOptions.dbTransaction)
-    }
+  //   if (dbTransactionOptions.useTransaction) {
+  //     subscription.useTransaction(dbTransactionOptions.dbTransaction)
+  //   }
 
-    return subscription.save()
-  }
+  //   return subscription.save()
+  // }
 }

@@ -2,7 +2,6 @@
 import CreatePostRecordOptions from 'App/Systems/Client/PostsManagement/TypeChecking/Post/CreatePostRecordOptions'
 import Post from 'App/Systems/Client/PostsManagement/Models/Post'
 import PostIdentifierOptions from 'App/Systems/Client/PostsManagement/TypeChecking/Post/PostIdentifierOptions'
-import UpdatePostRecordOptions from 'App/Systems/Client/PostsManagement/TypeChecking/Post/UpdatePostRecordOptions'
 import User from '../../UserManagement/Models/User'
 import Subscription from '../../Subscription/Models/Subscription'
 
@@ -142,19 +141,19 @@ export default class PostActions {
    * @returns {*}  {(Promise<Post | null>)}
    * @memberof PostActions
    */
-  public static async updatePostRecord(updatePostRecordOptions: UpdatePostRecordOptions) {
-    const { identifierOptions, updatePayload, dbTransactionOptions } = updatePostRecordOptions
+  // public static async updatePostRecord(updatePostRecordOptions: UpdatePostRecordOptions) {
+  //   const { identifierOptions, updatePayload, dbTransactionOptions } = updatePostRecordOptions
 
-    const post = await this.getPostRecord(identifierOptions)
+  //   const post = await this.getPostRecord(identifierOptions)
 
-    // if (post === this.POST_RECORD_NOT_FOUND) return this.POST_RECORD_NOT_FOUND
+  //   // if (post === this.POST_RECORD_NOT_FOUND) return this.POST_RECORD_NOT_FOUND
 
-    await post!.merge(updatePayload)
+  //   await post!.merge(updatePayload)
 
-    if (dbTransactionOptions.useTransaction) {
-      post!.useTransaction(dbTransactionOptions.dbTransaction)
-    }
+  //   if (dbTransactionOptions.useTransaction) {
+  //     post!.useTransaction(dbTransactionOptions.dbTransaction)
+  //   }
 
-    return post!.save()
-  }
+  //   return post!.save()
+  // }
 }

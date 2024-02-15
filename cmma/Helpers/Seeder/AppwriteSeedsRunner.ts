@@ -3,8 +3,10 @@ import CmmaConfiguration from '../../Models/CmmaConfiguration'
 import CmmaProjectMapActions from '../../Actions/CmmaProjectMapActions'
 import CmmaContextActions from '../../Actions/CmmaContextActions'
 import CmmaSystemActions from '../../Actions/CmmaSystemActions'
-import importFile from '../importFile'
-import AppwriteSeederInterface from '../../../app/Common/TypeChecking/GeneralPurpose/AppwriteSeederInterface'
+
+
+// import importFile from '../importFile'
+// import AppwriteSeederInterface from '../../../app/Common/TypeChecking/GeneralPurpose/AppwriteSeederInterface'
 
 export default class AppwriteSeedsRunner {
   constructor(private cmmaConfiguration: CmmaConfiguration, private appRoot: string) {}
@@ -55,10 +57,10 @@ export default class AppwriteSeedsRunner {
   }
 
   public async run() {
-    for (let seed of this.getSeedsList()) {
-      const seederInstance: AppwriteSeederInterface = await importFile(seed)
+    // for (let seed of this.getSeedsList()) {
+    //   const seederInstance: AppwriteSeederInterface = await importFile(seed)
 
-      await seederInstance.run()
-    }
+    //   await seederInstance.run()
+    // }
   }
 }
